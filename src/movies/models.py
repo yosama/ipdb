@@ -19,6 +19,7 @@ class Movie(models.Model):
     rating = models.FloatField()
     created_at = models.DateTimeField(auto_now_add=True) # save the date when the object is created
     modified_at = models.DateTimeField(auto_now_add=True) # save the date when the object is updated
+    category = models.ForeignKey(Category, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.title
