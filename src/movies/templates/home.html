@@ -9,7 +9,9 @@
 
     <ul>
         {% for movie in movies %}
-            <img src="{{movie.image}}" alt="{{ movie.title }}" title="{{ movie.title }}" height="300"/>
+            <a href="{% url 'movie_detail_page' movie.pk %}" title="{{ movie.title }}">
+                <img src="{{movie.image}}" alt="{{ movie.title }}" title="{{ movie.title }}" height="300"/>
+            </a>
         {% endfor %}
     </ul>
 </body>
