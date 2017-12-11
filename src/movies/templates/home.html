@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>IPDB: Internet Pelis Database</title>
-</head>
-<body>
-    <h1>Welcome to IPDB</h1>
+{% extends "base.html" %}
 
-    <ul>
-        {% for movie in movies %}
-            <a href="{% url 'movie_detail_page' movie.pk %}" title="{{ movie.title }}">
-                <img src="{{movie.image}}" alt="{{ movie.title }}" title="{{ movie.title }}" height="300"/>
-            </a>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% block content %}
+
+    <h1>Welcome to IPDB</h1>
+    {% for movie in movies %}
+        <a href="{% url 'movie_detail_page' movie.pk %}" title="{{ movie.title }}">
+            <img src="{{movie.image}}" alt="{{ movie.title }}" title="{{ movie.title }}" height="300"/>
+        </a>
+    {% endfor %}
+
+{% endblock %}
