@@ -3,10 +3,15 @@ from django.contrib.auth import authenticate, login as django_login, logout as d
 from django.shortcuts import render, redirect
 
 # Create your views here.
+from django.views import View
 
 
-def login(request):
-    if request.method == "POST":
+class LoginView(View):
+
+    def get(self, request):
+        return render(request, "login_form.html")
+
+    def post(self, request):
         username = request.POST.get("login_username")
         password = request.POST.get("login_password")
         authenticated_user = authenticate(username=username, password=password)
@@ -16,8 +21,7 @@ def login(request):
             return redirect('home_page')
         else:
             messages.error(request, "User incorrect or inactive")
-            print("User incorrect or inactive")
-    return render(request, "login_form.html")
+            return render(request, "login_form.html")
 
 
 def logout(request):
