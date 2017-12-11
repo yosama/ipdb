@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate, login as django_login
+from django.contrib.auth import authenticate, login as django_login, logout as django_logout
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -18,3 +18,8 @@ def login(request):
             messages.error(request, "User incorrect or inactive")
             print("User incorrect or inactive")
     return render(request, "login_form.html")
+
+
+def logout(request):
+    django_logout(request)
+    return redirect("login_page")
