@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
 from django.contrib import messages
+from django.views.generic import ListView
 
 from movies.forms import MovieForm
 from movies.models import Movie
@@ -59,5 +60,13 @@ class CreateMovieView(LoginRequiredMixin, View):
 
         return render(request, "movie_form.html", {"form": form})
 
+
+class MyMoviesView(ListView):
+    model = Movie
+    template_name = "my_movies.html"
+
+    def get_queryset(self):
+        queryset = super(MyMoviesView, self).get_queryset()
+        return queryset.filter(user=self.request.user)
 
 
