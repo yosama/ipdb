@@ -9,12 +9,11 @@ class Category(models.Model):
         return self.name
 
 
-
 class Movie(models.Model):
     title = models.CharField(max_length=150)
     summary = models.TextField()
     director_name = models.CharField(max_length=100)
-    realease_date = models.DateField()
+    release_date = models.DateField()
     image = models.URLField()
     rating = models.FloatField()
     created_at = models.DateTimeField(auto_now_add=True) # save the date when the object is created

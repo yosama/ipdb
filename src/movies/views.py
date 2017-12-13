@@ -17,7 +17,7 @@ def hello_world(request):
 
 
 def home(request):
-    movies = Movie.objects.all().order_by("-realease_date")[:5]
+    movies = Movie.objects.all().order_by("-release_date")[:5]
     context = {"movies": movies}
 
     return render(request, "home.html", context)
