@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from movies.views import hello_world, home, movie_detail
+from movies.views import hello_world, home, movie_detail, CreateMovieView
 from users.views import LoginView, logout
 
 urlpatterns = [
@@ -24,5 +24,6 @@ urlpatterns = [
     path('', home, name="home_page"),
     path('movies/<int:pk>/', movie_detail, name="movie_detail_page"),
     path('login', LoginView.as_view(), name="login_page"),
-    path('logout', logout, name="logout_page")
+    path('logout', logout, name="logout_page"),
+    path('movies/create', CreateMovieView.as_view(), name="create_movie_page")
 ]
