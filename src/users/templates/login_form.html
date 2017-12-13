@@ -12,7 +12,7 @@
         {% endfor %}
     {% endif %}
 
-    <form method="post" action="">
+    <form method="post" novalidate>
         {% csrf_token%}
         {{ form.as_p }}
         <div>
