@@ -31,8 +31,8 @@ urlpatterns = [
 
     # API REST
     path('api/1.0/hello', HelloWorld.as_view(), name="api_hello_world"),
-    path('api/1.0/users/<int:pk>', UserDetailAPI.as_view(), name="api_users_detail"),
-    path('api/1.0/users', UsersListAPI.as_view(), name="api_users_list")
+    path('api/1.0/users/<int:pk>', UserDetailAPI.as_view(), name="api_user_detail"),
+    path('api/1.0/users/', UsersListAPI.as_view(), name="api_users_list")
 
 
 ]
