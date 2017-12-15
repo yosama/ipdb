@@ -37,8 +37,4 @@ urlpatterns = [
 
     path('api/1.0/movies/<int:pk>', MovieDetailAPI.as_view(), name="api_movies_detail"),
     path('api/1.0/movies/', MovieListAPI.as_view(), name="api_movies_list")
-
-
-
-
 ]
